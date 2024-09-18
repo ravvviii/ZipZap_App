@@ -8,7 +8,7 @@ import { Colors, Fonts, lightColors } from '@utils/Constants'
 import { resetAndNavigate } from '@utils/NavigationUtils'
 import useKeyboardOffsetHeight from '@utils/useKeyboardOffsetHeight'
 import React, { FC, useEffect, useRef, useState } from 'react'
-import { Alert, Animated, Image, Keyboard, StyleSheet, View } from 'react-native'
+import { Animated, Image, Keyboard, StyleSheet, View } from 'react-native'
 import { GestureHandlerRootView, PanGestureHandler, State } from 'react-native-gesture-handler'
 import LinearGradient from 'react-native-linear-gradient'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -55,7 +55,9 @@ const CustomerLogin: FC = () => {
 
       
     } catch (error) {
-      Alert.alert("Login failed")
+      // Alert.alert("Login failed", error)
+      console.log(error);
+      
       
     }
     finally{

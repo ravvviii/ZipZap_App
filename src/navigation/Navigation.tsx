@@ -2,6 +2,7 @@ import CustomerLogin from '@features/auth/CustomerLogin'
 import DeliveryLogin from '@features/auth/DeliveryLogin'
 import SplashScreen from '@features/auth/SplashScreen'
 import ProductDashboard from '@features/dashboard/ProductDashboard'
+import DeliveryDashboard from '@features/delivery/DeliveryDashboard'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { navigationRef } from '@utils/NavigationUtils'
@@ -21,9 +22,21 @@ const Navigation: FC = () => {
         }}
 
       >
+
+
         <Stack.Screen name='SplashScreen'
           component={SplashScreen}
         />
+        <Stack.Screen name='DeliveryDashboard'
+          component={DeliveryDashboard}
+        />
+
+
+
+
+
+
+
         <Stack.Screen name='ProductDashboard'
           component={ProductDashboard}
         />
