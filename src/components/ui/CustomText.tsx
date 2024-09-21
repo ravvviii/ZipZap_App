@@ -1,18 +1,9 @@
 import { Colors, Fonts } from '@utils/Constants';
 import { StyleSheet, Text, TextStyle } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
+
 interface Props {
-    variant?:
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'h7'
-    | 'h8'
-    | 'h9'
-    | 'body';
+    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h7' | 'h8' | 'h9' | 'body';
     fontFamily?: Fonts;
     fontSize?: number;
     style?: TextStyle | TextStyle[];
@@ -31,8 +22,6 @@ const CustomText: React.FC<Props> = ({
     onLayout,
     ...props
 }) => {
-
-
 
     let computedFontSize: number;
 
@@ -69,36 +58,27 @@ const CustomText: React.FC<Props> = ({
             break;
     }
 
+    const fontFamilyStyle = { fontFamily };
 
-    const fontFamilyStyle={
-        fontFamily
-    }
-
-
+    // Convert number to string explicitly to avoid Text component issues
+    const content = typeof children === 'number' ? String(children) : children;
 
     return (
-
-      
-
-
-
-    <Text onLayout={onLayout} style={[styles.text, {color:Colors.text, fontSize:computedFontSize}, fontFamilyStyle, style]}
-    numberOfLines={numberOfLines !== undefined ? numberOfLines :undefined}
-    {...props}
-    >
-
-        {children}
-
-    </Text>
+        <Text
+            onLayout={onLayout}
+            style={[styles.text, { color: Colors.text, fontSize: computedFontSize }, fontFamilyStyle, style]}
+            numberOfLines={numberOfLines}
+            {...props}
+        >
+            {content || ''} {/* Ensure children is not undefined */}
+        </Text>
     );
-  };
+};
 
-  export default CustomText
+export default CustomText;
 
-
-  const styles = StyleSheet.create({
-    text:{
-            textAlign:'left'
-    }
-  })
-
+const styles = StyleSheet.create({
+    text: {
+        textAlign: 'left',
+    },
+});
