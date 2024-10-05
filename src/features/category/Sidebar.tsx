@@ -50,39 +50,41 @@ const Sidebar: FC<SidebarProps> = ({ selectedCategory, categories, onCategoryPre
         <Animated.View style={[styles.indicator, indicatorStyle]} />
 
         <Animated.View>
-          {categories?.map((category: any, index: number) => {
-            const animatedStyle = useAnimatedStyle(() => ({
-              transform: [{ translateY: animatedValues[index].value }],
-            }));
+        {categories?.map((category: any, index: number) => {
+  
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: animatedValues[index].value }],
+  }));
 
-            return (
-              <TouchableOpacity
-                key={index}
-                onPress={() => {
-                  setLocalSelectedCategory(category); // Update the selected category locally
-                  onCategoryPress(category); // Pass it to the parent function if needed
-                }}
-                activeOpacity={1}
-                style={styles.categoryButton}
-              >
-                <View
-                  style={[
-                    styles.imageContainer,
-                    localSelectedCategory?._id === category?._id && styles.selectedImageContainer,
-                  ]}
-                >
-                  <Animated.Image
-                    source={{ uri: category.image }}
-                    style={[styles.image, animatedStyle]}
-                  />
-                </View>
+  return (
+    <TouchableOpacity
+      key={index}
+      onPress={() => {
+        setLocalSelectedCategory(category);
+        onCategoryPress(category);
+      }}
+      activeOpacity={1}
+      style={styles.categoryButton}
+    >
+      <View
+        style={[
+          styles.imageContainer,
+          localSelectedCategory?._id === category?._id && styles.selectedImageContainer,
+        ]}
+      >
+        <Animated.Image
+          source={{ uri: category.image || 'fallback-image-url' }} // Add fallback if necessary
+          style={[styles.image, animatedStyle]}
+        />
+      </View>
 
-                <CustomText fontSize={RFValue(7)} style={{ textAlign: 'center' }}>
-                  {category?.name}
-                </CustomText>
-              </TouchableOpacity>
-            );
-          })}
+      <CustomText fontSize={RFValue(7)} style={{ textAlign: 'center' }}>
+        {category?.name}
+      </CustomText>
+    </TouchableOpacity>
+  );
+})}
+
         </Animated.View>
       </ScrollView>
     </View>

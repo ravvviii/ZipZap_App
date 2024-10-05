@@ -10,6 +10,7 @@ import Visuals from './Visuals'
 import Content from '@components/dashboard/Content'
 import CustomText from '@components/ui/CustomText'
 import withCart from '@features/cart/Withcart'
+import withLiveStatus from '@features/map/withLiveStatus'
 import { Fonts } from '@utils/Constants'
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -198,4 +199,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default withCart(withCollapsibleContext(ProductDashboard))
+export default withLiveStatus(withCart(withCollapsibleContext(ProductDashboard)))

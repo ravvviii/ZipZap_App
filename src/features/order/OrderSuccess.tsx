@@ -1,13 +1,28 @@
 import CustomText from '@components/ui/CustomText'
 import { useAuthStore } from '@state/authStore'
 import { Colors, Fonts } from '@utils/Constants'
+import { replace } from '@utils/NavigationUtils'
 import { screenWidth } from '@utils/Scaling'
 import LottieView from 'lottie-react-native'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
 
 const OrderSuccess: FC = () => {
     const {user} = useAuthStore()
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+          replace("LiveTracking");
+        }, 2300);
+      
+        return () => clearTimeout(timeoutId);
+      }, []);
+      
+
+
+
+
+
     return (
         <View style={styles.container}>
             <LottieView

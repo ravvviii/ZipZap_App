@@ -20,32 +20,10 @@ const Content :FC = () => {
 
       <CategoryContainer data={categories} />
       
-      <CustomText variant='h5' fontFamily={Fonts.SemiBold}>
-
-        Grocery & Kitchen
-        
-        </CustomText>
+     
 
 
-      <CategoryContainer data={categories} />
       
-      <CustomText variant='h5' fontFamily={Fonts.SemiBold}>
-
-        Grocery & Kitchen
-        
-        </CustomText>
-
-
-      <CategoryContainer data={categories} />
-      
-      <CustomText variant='h5' fontFamily={Fonts.SemiBold}>
-
-        Grocery & Kitchen
-        
-        </CustomText>
-
-
-      <CategoryContainer data={categories} />
       
 
 

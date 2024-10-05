@@ -4,6 +4,7 @@ import SplashScreen from '@features/auth/SplashScreen'
 import ProductCategories from '@features/category/ProductCategories'
 import ProductDashboard from '@features/dashboard/ProductDashboard'
 import DeliveryDashboard from '@features/delivery/DeliveryDashboard'
+import LiveTracking from '@features/map/LiveTracking'
 import OrderSuccess from '@features/order/OrderSuccess'
 import ProductOrder from '@features/order/ProductOrder'
 import { NavigationContainer } from '@react-navigation/native'
@@ -41,6 +42,9 @@ const Navigation: FC = () => {
         />
         <Stack.Screen name='OrderSuccess'
           component={OrderSuccess}
+        />
+        <Stack.Screen name='LiveTracking'
+          component={LiveTracking}
         />
 
 
