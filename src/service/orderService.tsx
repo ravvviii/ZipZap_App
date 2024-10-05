@@ -33,3 +33,18 @@ export const createOrder = async (items:any, totalPrice:number) => {
         
     }
   };
+
+  export const fetchCustomerOrders = async (userId:string) => {
+    try {
+       
+        const response = await appAxios.get(`/order?customerId=${userId}`)
+        
+         return response.data
+  
+       
+    } catch (error) {
+        console.log("Fetch Customer order Error", error);
+        return null
+        
+    }
+  };

@@ -1,6 +1,7 @@
 import CustomText from '@components/ui/CustomText'
 import { useAuthStore } from '@state/authStore'
 import { Fonts } from '@utils/Constants'
+import { navigate } from '@utils/NavigationUtils'
 import React, { FC } from 'react'
 import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -61,7 +62,7 @@ const Header: FC<{ showNotice: () => void }> = ({ showNotice }) => {
             </TouchableOpacity>
 
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> navigate("Profile")}>
                 <Icon name='account-circle-outline' size={RFValue(36)} color='#fff'/>
             </TouchableOpacity>
         </View>

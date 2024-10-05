@@ -7,6 +7,7 @@ import DeliveryDashboard from '@features/delivery/DeliveryDashboard'
 import LiveTracking from '@features/map/LiveTracking'
 import OrderSuccess from '@features/order/OrderSuccess'
 import ProductOrder from '@features/order/ProductOrder'
+import Profile from '@features/profile/Profile'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { navigationRef } from '@utils/NavigationUtils'
@@ -45,6 +46,9 @@ const Navigation: FC = () => {
         />
         <Stack.Screen name='LiveTracking'
           component={LiveTracking}
+        />
+        <Stack.Screen name='Profile'
+          component={Profile}
         />
 
 
