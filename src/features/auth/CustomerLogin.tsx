@@ -78,7 +78,7 @@ const CustomerLogin: FC = () => {
         direction = translationY > 0 ? 'down' : 'up';
       }
 
-      const newSequence = [...gestureSequence, direction].slice(-5)
+      const newSequence = [...gestureSequence, direction].slice(-2)
       setGestureSequence(newSequence)
       console.log(newSequence);
 
