@@ -15,13 +15,17 @@ const ProductList: FC<{ data: any }> = ({ data }) => {
 
     return (
       <FlatList
-        data={data}
-        keyExtractor={(item) => item._id.toString()}
-        renderItem={renderItem}
-        contentContainerStyle={styles.content}
-        numColumns={2}
-        style={styles.container}
-      />
+  data={data}
+  keyExtractor={(item) => item._id.toString()}
+  renderItem={renderItem}
+  contentContainerStyle={styles.content}
+  numColumns={2}
+  style={styles.container}
+  initialNumToRender={10}  // Renders only the first 10 items initially
+  maxToRenderPerBatch={10} // Number of items rendered in each batch
+  windowSize={5}           // Number of items to render offscreen
+/>
+
     );
   };
   

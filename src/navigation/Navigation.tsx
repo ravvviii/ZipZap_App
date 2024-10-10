@@ -4,6 +4,7 @@ import SplashScreen from '@features/auth/SplashScreen'
 import ProductCategories from '@features/category/ProductCategories'
 import ProductDashboard from '@features/dashboard/ProductDashboard'
 import DeliveryDashboard from '@features/delivery/DeliveryDashboard'
+import DeliveryMap from '@features/delivery/DeliveryMap'
 import LiveTracking from '@features/map/LiveTracking'
 import OrderSuccess from '@features/order/OrderSuccess'
 import ProductOrder from '@features/order/ProductOrder'
@@ -50,10 +51,9 @@ const Navigation: FC = () => {
         <Stack.Screen name='Profile'
           component={Profile}
         />
-
-
-
-
+        <Stack.Screen name='DeliveryMap'
+          component={DeliveryMap}
+        />
 
 
 

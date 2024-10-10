@@ -59,7 +59,7 @@ export const deliveryLogin = async (email: string, password: string) => {
       console.error("Missing deliveryPartner data in response");
     }
   } catch (error) {
-    console.error("Login Error", error);
+    console.error("Login Error at delivery login", error);
     
     throw new Error("Failed to login. Please try again.");
   }
@@ -104,4 +104,18 @@ export const refetchUser = async (setUser:any) => {
       
   }
 };
+
+
+
+
+
+export const updateUserLocation = async (data: any, setUser: any) => {
+  try {
+    const response = await appAxios.patch('/user', data);
+    refetchUser(setUser);  
+  } catch (error) {
+    console.log("updateUserLocation Error", error);
+  }
+};
+
 

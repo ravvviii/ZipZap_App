@@ -53,7 +53,20 @@ const LiveTracking: FC = () => {
             <LiveHeader type='Customer' title={msg} secondTitle={time} />
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
 
-                <LiveMap />
+                <LiveMap
+                deliveryLocation={currentOrder?.deliveryLocation }
+
+                pickupLocation={currentOrder?.pickupLocation }
+
+                deliveryPersonLocation={currentOrder?.deliveryPersonLocation }
+
+
+                hasAccepted={currentOrder?.status == 'confirmed'}
+
+                hasPickedUp={currentOrder?.status == 'arriving'}
+
+                
+                />
 
 
                 <View style={styles.flexRow}>

@@ -3,6 +3,7 @@ import CustomSafeAreaView from '@components/global/CustomSafeAreaView';
 import CustomButton from '@components/ui/CustomButton';
 import CustomInput from '@components/ui/CustomInput';
 import CustomText from '@components/ui/CustomText';
+import { deliveryLogin } from '@service/authService';
 import { Fonts } from '@utils/Constants';
 import { resetAndNavigate } from '@utils/NavigationUtils';
 import { screenHeight } from '@utils/Scaling';
@@ -30,7 +31,7 @@ const DeliveryLogin: FC = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      // await deliveryLogin(email, password);
+      await deliveryLogin(email, password);
       resetAndNavigate("DeliveryDashboard");
     } catch (error) {
       console.log(error);

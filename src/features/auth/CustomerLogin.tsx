@@ -8,7 +8,7 @@ import { Colors, Fonts, lightColors } from '@utils/Constants'
 import { resetAndNavigate } from '@utils/NavigationUtils'
 import useKeyboardOffsetHeight from '@utils/useKeyboardOffsetHeight'
 import React, { FC, useEffect, useRef, useState } from 'react'
-import { Animated, Image, Keyboard, StyleSheet, View } from 'react-native'
+import { Animated, Image, Keyboard, StyleSheet, Text, View } from 'react-native'
 import { GestureHandlerRootView, PanGestureHandler, State } from 'react-native-gesture-handler'
 import LinearGradient from 'react-native-linear-gradient'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -82,7 +82,7 @@ const CustomerLogin: FC = () => {
       setGestureSequence(newSequence)
       console.log(newSequence);
 
-      if (newSequence.join(' ') === 'up up down left right') {
+      if (newSequence.join(' ') === 'up down') {
         setGestureSequence([])
         resetAndNavigate('DeliveryLogin')
       }
@@ -109,11 +109,11 @@ const CustomerLogin: FC = () => {
             <View style={styles.content}>
               <Image source={require('@assets/images/logo.png')} style={styles.logo} />
 
-              <CustomText variant='h2' fontFamily={Fonts.Bold}>India's First minute app</CustomText>
+              <CustomText variant='h2' fontFamily={Fonts.Bold}>India's <Text style={{color:'red'}}>first </Text>minute app</CustomText>
 
               <CustomText variant='h5' fontFamily={Fonts.SemiBold} style={styles.text}>Log in or sign up</CustomText>
 
-              <CustomInput
+              <CustomInput 
                 onChangeText={(text) => { setPhoneNumber(text.slice(0, 10)) }}
                 onClear={() => setPhoneNumber('')}
                 value={phoneNumber}

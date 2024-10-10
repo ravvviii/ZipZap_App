@@ -1,14 +1,36 @@
 import CustomText from '@components/ui/CustomText'
+import Geolocation from '@react-native-community/geolocation'
+import { reverseGeocode } from '@service/mapService'
 import { useAuthStore } from '@state/authStore'
 import { Fonts } from '@utils/Constants'
 import { navigate } from '@utils/NavigationUtils'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Header: FC<{ showNotice: () => void }> = ({ showNotice }) => {
     const { setUser, user } = useAuthStore()
+
+    const updateUserLocation = async () => {
+        Geolocation.requestAuthorization();
+        Geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                reverseGeocode(latitude, longitude, setUser);
+            },
+            (error) => console.log(error),
+            {
+                enableHighAccuracy: false,
+                timeout: 10000,
+            }
+        );
+    };
+
+    useEffect(() => {
+        updateUserLocation();
+    }, []);
+
 
 
     return (
@@ -62,8 +84,8 @@ const Header: FC<{ showNotice: () => void }> = ({ showNotice }) => {
             </TouchableOpacity>
 
 
-            <TouchableOpacity onPress={()=> navigate("Profile")}>
-                <Icon name='account-circle-outline' size={RFValue(36)} color='#fff'/>
+            <TouchableOpacity onPress={() => navigate("Profile")}>
+                <Icon name='account-circle-outline' size={RFValue(36)} color='#fff' />
             </TouchableOpacity>
         </View>
     )
@@ -76,15 +98,15 @@ const styles = StyleSheet.create({
     },
     text2: {
         color: '#fff',
-        width:'90%',
-        textAlign:'center'
+        width: '90%',
+        textAlign: 'center'
     },
-    flexRow:{
-            justifyContent:'center',
-            alignItems:'center',
-            flexDirection:'row',
-            gap:2,
-            width:'70%'
+    flexRow: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        gap: 2,
+        width: '70%'
     },
     subContainer: {
         flexDirection: 'row',

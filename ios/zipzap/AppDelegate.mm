@@ -1,4 +1,6 @@
 #import "AppDelegate.h"
+#import <GoogleMaps/GoogleMaps.h>
+
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -8,6 +10,7 @@
 {
   self.moduleName = @"zipzap";
   // You can add your custom initial props in the dictionary below.
+  [GMSServices provideAPIKey:@"AIzaSyB9MoA0dSL85XJLFgfuN4acSQfsRY8VSto"];
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
 
