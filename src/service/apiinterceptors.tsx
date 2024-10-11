@@ -2,7 +2,7 @@ import { tokenStorage } from "@state/storage";
 import axios from "axios";
 import { Alert } from "react-native";
 import { refresh_tokens } from "./authService";
-import { BASE_URl } from "./config";
+// import { BASE_URl } from "./config";
 
 
 
@@ -11,7 +11,7 @@ import { BASE_URl } from "./config";
 
 
 export const appAxios = axios.create({
-    baseURL:BASE_URl
+    baseURL:'https://zipzap-server.onrender.com/api'
 })
 
 

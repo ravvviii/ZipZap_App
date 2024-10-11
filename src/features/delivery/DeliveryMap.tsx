@@ -59,7 +59,7 @@ const DeliveryMap: FC = () => {
         const data = await confirmOrder(orderData?._id, myLocation);
         if (data) {
           setCurrentOrder(data);
-          Alert.alert("Order Accepted, Grab your package");
+          // Alert.alert("Order Accepted, Grab your package");
         } else {
           Alert.alert("There was an error");
         }
@@ -71,7 +71,7 @@ const DeliveryMap: FC = () => {
         const data = await sendLiveOrderUpdates(orderData?._id, myLocation, 'arriving');
         if (data) {
           setCurrentOrder(data);
-          Alert.alert("Let's make someone happy 😊");
+          // Alert.alert("Let's make someone happy 😊");
         } else {
           Alert.alert("There was an error");
         }
@@ -83,7 +83,7 @@ const DeliveryMap: FC = () => {
         const data = await sendLiveOrderUpdates(orderData?._id, myLocation, 'delivered');
         if (data) {
           setCurrentOrder(null);
-          Alert.alert("Yeaahhh! You contribute to a smile!");
+          Alert.alert("Yeaahhh! You contribute to a smile 😊!");
         } else {
           Alert.alert("There was an error");
         }

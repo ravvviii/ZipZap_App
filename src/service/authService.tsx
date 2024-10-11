@@ -7,8 +7,8 @@ import { appAxios } from "./apiinterceptors";
 
 
 
-export const BASE_URL = 'http://192.168.0.111:3000/api';
-export const SOCKET_URL = 'http://192.168.0.111:3000';
+export const BASE_URL = 'https://zipzap-server.onrender.com/api';
+export const SOCKET_URL = 'https://zipzap-server.onrender.com';
 
 
 export const customerLogin = async (phone: string) => {

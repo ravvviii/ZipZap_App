@@ -54,15 +54,16 @@ const styles = StyleSheet.create({
 
     },
     item: {
-      width: '25%',  // Adjust the percentage based on how many items you want in each row
+      width: '22%',  // Adjust the percentage based on how many items you want in each row
       justifyContent: 'center',
       alignItems: 'center',
       marginBottom: 10,  // Add margin for better spacing
+      margin:4
     },
     
     imageContainer: {
-      width: 80, // Set fixed width or responsive size for consistency
-      height: 80,
+      width: 60, // Set fixed width or responsive size for consistency
+      height: 60,
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 10,
