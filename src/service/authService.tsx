@@ -3,16 +3,17 @@ import { tokenStorage } from "@state/storage";
 import { resetAndNavigate } from "@utils/NavigationUtils";
 import axios from "axios";
 import { appAxios } from "./apiinterceptors";
-import { BASE_URl } from "./config";
+// import { BASE_URL } from "./config";
 
 
 
-
+export const BASE_URL = 'http://192.168.0.111:3000/api';
+export const SOCKET_URL = 'http://192.168.0.111:3000';
 
 
 export const customerLogin = async (phone: string) => {
   try {
-    const response = await axios.post(`${BASE_URl}/customer/login`, { phone });
+    const response = await axios.post(`${BASE_URL}/customer/login`, { phone });
     const { accessToken, refreshToken, customer } = response.data;
 
     if (accessToken && refreshToken) {
@@ -42,7 +43,7 @@ export const customerLogin = async (phone: string) => {
 
 export const deliveryLogin = async (email: string, password: string) => {
   try {
-    const response = await axios.post(`${BASE_URl}/delivery/login`, { email,password });
+    const response = await axios.post(`${BASE_URL}/delivery/login`, { email,password });
     const { accessToken, refreshToken, deliveryPartner } = response.data;
 
     if (accessToken && refreshToken) {
@@ -72,7 +73,7 @@ export const deliveryLogin = async (email: string, password: string) => {
 export const refresh_tokens = async () => {
   try {
       const refreshToken = tokenStorage.getString('refreshToken');
-      const response = await axios.post(`${BASE_URl}/refresh-token`, { refreshToken });
+      const response = await axios.post(`${BASE_URL}/refresh-token`, { refreshToken });
       
       const new_access_token = response.data.accessToken;
       const new_refresh_token = response.data.refreshToken;
